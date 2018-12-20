@@ -1,0 +1,128 @@
+<!--1) connect jQuery to HTML : - File;    - cdn-->
+<!--2) Select elements using jQuery: - css selectors-->
+<!--3) css of an element: -.css() ---Get/set; -.click(); -.hover(); -anonymous funtion-->
+
+
+<!doctype html>
+<html lang="en">
+   
+    <head>
+        <meta charset="utf-8">
+        <title>My jQuery Practice Page</title>
+       <link type="stylesheet" href="jquery-ui.min.css" />
+   <script src="jquery-3.3.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+       <style>
+           #box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background-color: fuchsia;
+      border-radius: 50%;
+      /*z-index: -100;*/
+    }
+       </style>
+    </head>
+    <body>
+    <!--    <h1>Hello this is my interactive webpage</h1>-->
+    <!--    <button id="red">Press for red</button>-->
+    <!--    <button id="blue">Press for blue</button>-->
+    <!--    <button id="yellow">Press for yellow</button>-->
+    <!--    <button id="orange">Press for orange</button>-->
+    <!--    <br>-->
+    <!--    <button id="up">move up</button>-->
+    <!--    <button id="down">move down</button>-->
+    <!--    <button id="left">move left</button>-->
+    <!--    <button id="right">move right</button>-->
+    
+    <!-- <form>-->
+    <!--  <p>Username:</p>-->
+    <!--  <input id="username" type="text" />-->
+    <!--  <p>Password:</p>-->
+    <!--  <input id="password" type="password" />-->
+    <!--</form>-->
+    
+    <!--<button id="login">Sign in</button>-->
+        
+    
+    <div id="box" tabindex="0"></div>  
+    
+       <script>
+       /* global $ */
+       
+    //   $('#box').focus();
+       
+    //   $("#red").click(function () {
+    //       $("h1").css('color', 'red');
+    //   });
+       
+    //   $("#blue").click(function () {
+    //       $("h1").css('color', 'blue');
+    //   });
+       
+    //   $("#yellow").click(function () {
+    //       $("h1").css('color', 'yellow');
+    //   });
+       
+    //   $("#orange").click(function () {
+    //       $("h1").css('color', 'orange');
+    //   });
+       
+    //   $("#login").click( function () {
+    //       var usernameValue = $("#username").val();
+    //       var passwordInput = $("#password").val();
+    //       console.log(usernameValue);
+    //       console.log(passwordInput);
+    //       if (usernameValue == "rheotan" && passwordInput == "Pass123" ) {
+    //           console.log("You are in, welcome!")
+    //       } else {
+    //           console.log("The combination of username and password is not a match");
+    //       }
+    //   });
+       
+    //   var intervalDown;
+  $("#box").focus();
+  
+  $("#box").keydown(function (event) {
+      console.log(event.which);
+      
+      if (event.which === 40) {
+        var existingTop = $("#box").css("top");
+        console.log(existingTop);
+        $("#box").css("top", parseInt(existingTop) + 10);
+        }
+  });
+  
+  
+  
+  $("#box").keydown(function (event) {
+      if (event.which === 38) {
+    var existingTop = $("#box").css("top");
+    console.log(existingTop);
+    $("#box").css("top", parseInt(existingTop) - 10);
+      }
+  });
+  
+   $("#box").keydown(function (event) {
+       if (event.which === 37) {
+      var existingLeft = $("#box").css("left");
+      console.log(existingLeft);
+      $("#box").css("left", parseInt(existingLeft) - 10);
+       }
+  });
+  
+  $("#box").keydown(function (event) {
+      if (event.which === 39) {
+      var existingLeft = $("#box").css("left");
+      
+      console.log(existingLeft);
+    //   $("#box").css("left", parseInt(existingLeft) + 10);
+    // var diagonal = Math.sqrt((40*40)+(39*39));
+      $("#box").animate({left: '+=100', top: '+=100'}, 1000);
+      }
+  });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Testing Jquery UI</title>
+  <meta name="description" content="jQuery UI">
+  <meta name="author" content="Rheo">
+
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <!--<style>-->
+  <!--</style>-->
+</head>
+
+<body>
+    
+    <div id="accordion">
+        <h3>What is BMR in term of San Francisco Housing Development?</h3>
+        
+        <div>
+            <p>BMR (below market rate) - is a program that provide housing to low and medium income families in Bay Area. To be eligible to purchase a “BMR” unit, a household must meet specific income and first-time homeowner requirements.</p>
+        </div>
+        <h3>What's the requirement eligibility?</h3>
+        <div>
+            <p>So, in order to buy such a home you need:</p>
+            <ul>
+                <li>
+                    to meet specific income requirements, meaning that you can't earn more than a certain amount specified for each BMR unit. If, after you buy a BMR, your income increases, it is allowed
+                </li>
+                <li>
+                    to live or work in the city you are applying in. In most cases the preference is given to locals
+                </li>
+                <li>
+                    to be able to get a loan. Meaning, you have to work, pay taxes etc. In most cases you can't just go to any lender to get pre-approved. You have to pick from the list of approved lenders, that you can find on a BMR site for each city. There are also lenders that can qualify you for a down-payment assistance program
+                </li> 
+                <li>
+                    to complete a workshop and get a "First Time Buyer" Certificate. Keep in mind that you will need to sign up sometimes 2 months in advance
+                </li>
+            </ul>
+        </div>
+        <h3>What are the restrictions (if any)?</h3>
+        <div>
+            <p>BMRs have many restrictions as well:</p>
+            <ul>
+                <li>
+                    once you buy a BMR, it will always remain one. When you decide to sell this property, you will be able to do it only though the same program. And the price will be determined by the Mayor's Office of Housing.
+                </li>
+                <li>
+                    you can't buy it all cash and you can't buy it for someone. You have to get a loan and all people living in this unit have to be on the title
+                </li>
+                <li>
+                    you can't rent a BMR unit
+                </li>
+                <li>
+                    if there are more applications for one particular unit, a lottery will take place. Any buyer is welcome to present at the lottery, however everything is very transparent. Each buyer get a ticket with a number and they are literary pick a number out of a box. Many BMR units have tons of applications, and sometimes it may take you months to win one
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <button id="opener">Pick a date (dialog function)</button>
+    <div id="dialog" title="Pick a date (dialog function)">
+      <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+      <p>Don't forget to pick a date below</p>
+    </div>
+    <form>
+        <input type="text" id="datepicker" />
+    </form>
+    
+  <script>
+    /* global $ */
+    $(document).ready(function () {
+        $("#accordion").accordion({
+        heightStyle: "content",
+        collapsible: true,
+        active: false
+        });
+        
+        $("#datepicker").datepicker();
+        $("#dialog").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+        $("#opener").css(
+            "width", "100px");
+        
+        $("#opener").on( "click", function() {
+        $("#dialog").dialog("open");
+    });
+    });
+    
+    
+   
+    
+  
+  </script>
+  
+</body>
+</html>

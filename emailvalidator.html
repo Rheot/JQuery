@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Validate Your Email!</title>
+  <meta name="description" content="Email validator">
+  <meta name="author" content="Rheo">
+
+ 
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  
+  
+</head>
+
+<body>
+    
+    <form>
+        <input type="text" id="emailInput" />
+    </form>
+    <div>
+        <button id="button1">Is your email valid?</button>
+    </div>
+
+  <script>
+    /* global $ */
+  
+            
+     $("#button1").click(function() {
+        console.log("Pressed");
+        
+        var email = $("#emailInput").val();
+        var isValid = email.match(/^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.[a-zA-Z]+[a-zA-Z]+$/g);
+        console.log(isValid);
+        if (email == isValid) {
+            $("form").append("<input type='text' id='passwordInput' />");
+            $("div").append("<button id='button2'>Enter 6-8 AlphaNumeric password</button>");
+        } else {
+            alert("It's not a valid email address. Please enter a valid email address!");
+        }
+        $("#button2").click(function() {
+        console.log("Pressed");
+       
+        var password = $("#passwordInput").val();
+        var isValid2 = password.match(/^[a-zA-Z0-9.]{6,8}$/g);
+        if (password == isValid2) {
+            $("body").html("<p>Congratulations!!! You have created:</p>" + "<br>" +"<p>Email: </p>" + email + "<br>" +"<p>Password: </p>" + password);
+        } else {
+            alert("It's not a valid password. Please enter 6-8 AlphaNumeric password!");
+            }
+        });
+        
+    });
+    
+            // location.reload();
+      
+    
+
+    
+  </script>
+</body>
+</html>

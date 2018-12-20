@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="jquery-3.3.1.min.js"></script>
+        
+        <style>
+            img {
+                width: 400px;
+            }
+            .styled {
+                border: 2px;
+                border-radius: 80%;
+                background-color: cyan;
+                text-align: center;
+                padding: 0 20px;
+            }
+            #lightbox {
+                background-color: gray;
+                width: 90%;
+                border-radius: 10%;
+                margin: 0 auto;
+                top: 20%;
+            }
+            #lightbox p {
+                text-align: center;
+            }
+            #currentImage {
+                width: 70%;
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="lake">
+            <p>This paragraph should disappear when you click on the button below.</p>
+                <img src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                <br>
+            <button class="styled">Click Me!</button>
+        </div>
+        
+        
+        <script>
+            /* global $ */
+//  .html() replaces current content with supplied content
+//  .append() is adding after certain content
+//  .prepend() is adding before certain content
+//  .remove() removes target from DOM
+
+            // $("img").click( function () {
+            //     $("img").css('pointers-event', 'auto');
+            // });
+            
+            $(".lake").click( function () {
+                $(".lake").css('pointer-events', 'none');
+                //  $(".lake").unbind( "click" );
+                
+                $("body").append('<div id="lightbox"></div>');
+                
+                $("#lightbox").append(
+                `<p> 
+                <img id="currentImage" src="https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+                </p>`);
+                $("#currentImage").click( function () {
+                    $("#lightbox").remove();
+                    $("#currentImage").css('pointer-events', 'auto');
+                });
+            });
+               
+        </script>
+    </body>
+</html>

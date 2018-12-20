@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The real animal age</title>
+  
+  <link rel="stylesheet" href="calculator.css">
+  
+  <script src="jquery-3.3.1.min.js"></script>
+  <style>
+     
+      
+  </style>
+</head>
+
+<body>
+   
+    <header>
+        <iframe src="https://freesecure.timeanddate.com/clock/i6g9ahmh/n224/szw160/szh160/hocc3b146/hbw3/hfc000/cf100/hgr0/hwcc3b146/fav0/fiv0/mqcfff/mql15/mqw8/mqd100/mhcfff/mhl15/mhw4/mhd100/mmv0/hhcff9/hmcff9" frameborder="0" width="160" height="160"></iframe>
+    </header>
+      <h1>the real animal age</h1>
+     <div>
+        <div id="sanfrancisco">
+              <h2>San Francisco, CA, United States</h2>
+              <p>Current Date: <span id="date"></span></p>
+              <p>Current Time: <span id="time"></span></p>
+        </div>
+        <div class="new">
+            <div class="location">
+               <p>Enter your dog years (decimal is allowed)</p>
+                <form>
+                    <input id="dog" type="number">
+                </form>
+                <img id="button" src="images/arrow.jpg" />
+            </div>
+            <div class="newTime">
+                <p id="dogAge"> Result </p>
+            </div>
+            <div class="newDate">
+                <p id="dogHumanAge"> Additional & Supporting Facts</p>
+            </div>
+          </div>
+    
+        <div class="new">
+            <div class="location">
+               <p>Enter your cat years (decimal is allowed)</p>
+                <form>
+                    <input id ="cat" type="number">
+                </form>
+                <img id="button2" src="images/arrow.jpg" />
+            </div>
+            <div class="newDate">
+                <p id="catAge"> Result </p>
+                
+            </div>
+            <div class="newTime">
+                 <p id="catHumanAge"> Additional & Supporting Facts</p>
+                 
+            </div>
+            
+        </div>
+
+    </div>
+  <script>
+    /* global $ */
+    
+    var dt = new Date();
+    document.getElementById("date").innerHTML = dt.toLocaleDateString();
+
+    var dt = new Date();
+    document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+  
+  $("#button").click( function() {
+     $("#button").css('pointer-events', 'none');
+     var dogAge = parseInt($("#dog").val());
+     if (dogAge == 1) {
+     var humanAge = dogAge * 15;
+     }else if (dogAge == 2) {
+         humanAge = dogAge * 12;
+     }else if (dogAge == 3) {
+         humanAge = dogAge * 9.34;
+     }else if (dogAge == 4) {
+         humanAge = dogAge * 8;
+     }else if (dogAge == 5) {
+         humanAge = dogAge * 7.2;
+     }else {
+         humanAge = dogAge * 7;
+     };
+     $("#dogAge").html("<p>The current dog age of </p>" + "<span>" + dogAge + "</span>"+ "<br>" + "<p>Equivalent to </p>" + "<span>" + humanAge + "</span>" + "<p>years in human age.</p>"+"<br>"+"<p><span>note: please read the additional supporting docs. The size and breed also play a role in their lifespan.</span></p>");
+     $("#dogHumanAge").html("<p>The first year of your fuzzy friend's life is equal to about 15 human years. Size and breed also play a role. <span>Smaller dogs tend to live longer than larger ones,</span> but they may mature more quickly in the first few years of life. A huge pup might age more slowly at first, but be nearing middle age at 5.</p>" +
+     "<br>" + "<img id='dogImage' src='images/dog_age.jpg' />");
+     $("#button").css('pointer-events', 'auto');
+  });
+  
+  $("#button2").click( function() {
+     $("#button2").css('pointer-events', 'none');
+     var catAge = parseInt($("#cat").val());
+     var catHumanAge = catAge * 12;
+     $("#catAge").html("<p>The current age of your cat is </p>" + "<span>" + catAge + "</span>" + "<p> cat years</p>" + "<br>" + "<p>Equivalent to </p>" + "<span>" + catHumanAge + "</span>" + "<p>years in human age.</p>"+"<br>"+"<p><span>note: please read the additional supporting docs.</span></p>");
+     $("#catHumanAge").html("<p>There's no reliable scientific way to calculate the relationship between human and cat years, but it's generally agreed that <span>the first two years of a cat's life are roughly equal to the first 25 of a human's, and after this, each additional year is around four 'cat years'.</span></p>" + "<br>" + "<img id='catImage' src='images/catAge.jpg' />");
+     $("#button2").css('pointer-events', 'auto');
+  });
+  
+  </script>
+  
+</body>
+
+</html>
+
+<!--User story:-->
+<!--1. user can choose an animal from the list-->
+
+<!--1. User can input an age of animal-->
+
+<!--2. user can click the convert button to years in human age -->
+
+<!--3. user will get the convertion age of the animal chosen to a years in Human age.-->
